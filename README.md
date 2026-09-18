@@ -143,3 +143,143 @@ Built on MONAI and PyTorch.
                         ▼
             Visualization / Verification
 ```
+
+
+
+
+
+# Technologies Used
+
+## Core Development
+
+| Technology | Purpose |
+|---|---|
+| Python 3.11 | Core development and medical AI pipeline |
+| PyTorch | Deep learning model inference |
+| MONAI | Medical imaging AI framework and 3D medical image processing |
+| MONAI Model Zoo | Pretrained medical imaging models |
+| MONAI Label | Medical imaging annotation and AI-assisted labeling research |
+| NumPy | Numerical and array-based medical image processing |
+| NiBabel | NIfTI medical image loading, spatial metadata, and volume handling |
+| SciPy | Scientific computing and image-processing operations |
+| OpenCV | Image processing and computer vision operations |
+| Pillow (PIL) | Standard image loading and metadata extraction |
+| Tesseract OCR | Text extraction from images |
+| psutil | Runtime memory/resource monitoring |
+
+## Medical Imaging
+
+- **DICOM** — Medical imaging data standard and clinical imaging workflow
+- **NIfTI** — 3D medical imaging volume format
+- **Medical Segmentation Decathlon** — Initial benchmark dataset
+- **3D CT Processing** — Volumetric preprocessing and inference
+- **Sliding-Window Inference** — Memory-efficient processing of large 3D volumes
+
+## AI / Multimodal Analysis
+
+| Technology | Role |
+|---|---|
+| PyTorch | Neural network execution |
+| MONAI | Medical imaging models and preprocessing |
+| 3D U-Net | Spleen CT segmentation architecture |
+| Google Gemini | Multimodal image understanding and future explanation/reporting layer |
+
+## Image Processing
+
+- OpenCV
+- Pillow
+- Tesseract OCR
+- NumPy
+- NiBabel
+
+## Development & Testing
+
+- VS Code
+- Python Virtual Environment (`venv`)
+- Terminal / zsh
+- cURL
+- Thunder Client
+- Git
+- GitHub
+
+
+
+# Technology Architecture
+
+```text
+                    Medical Imaging Data
+                            │
+                 ┌──────────┴──────────┐
+                 │                     │
+               DICOM                 NIfTI
+                 │                     │
+                 └──────────┬──────────┘
+                            ▼
+                    Python Processing
+                            │
+              ┌─────────────┼─────────────┐
+              ▼             ▼             ▼
+           NiBabel        NumPy        OpenCV
+              │             │             │
+              └─────────────┼─────────────┘
+                            ▼
+                     MONAI Pipeline
+                            │
+                    PyTorch Inference
+                            │
+                     3D U-Net Model
+                            │
+                            ▼
+                  Medical AI Prediction
+                            │
+                ┌───────────┴───────────┐
+                ▼                       ▼
+          Segmentation             Evaluation
+                │                       │
+                ▼                       ▼
+          Visualization            Dice Score
+                                       
+                            │
+                            ▼
+                    Gemini Multimodal
+                    Reasoning / Reporting
+
+
+That tells the story much better than simply saying:
+
+> Python, PyTorch, MONAI, Gemini, OpenCV...
+
+---
+
+### One correction I'd make
+
+Don't list **DICOM** as if you've already completed the entire DICOM pipeline if that part is still under development.
+
+We can separate technologies into:
+
+**Implemented**
+- Python
+- PyTorch
+- MONAI
+- MONAI Model Zoo
+- NiBabel
+- NumPy
+- OpenCV
+- Pillow
+- Tesseract
+- Gemini
+- NIfTI
+- 3D CT inference
+
+**In development**
+- DICOM series processing
+- Modality classification
+- Model registry
+- API layer
+- Additional CT/MRI/X-ray models
+
+That distinction will make the README much more credible to your boss.
+
+And yes, I think the **technology section should be fairly prominent**, because your README is effectively documenting the engineering work you've done, not just advertising the project. GitHub also recommends scannable structure using headings, tables, lists, and visuals, which fits this format well. :contentReference[oaicite:1]{index=1}
+
+If you want, I can also give you a **single polished final `README.md` combining everything we discussed**—overview + objectives + technologies + architecture + exactly what you implemented + results + roadmap—so you can paste it into VS Code as one file.
