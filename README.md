@@ -1,5 +1,3 @@
-# medical-ai-engine
-Medical imaging AI engine for multimodal analysis, medical image preprocessing, 3D segmentation, abnormality detection, and clinician-oriented decision support.
 # Medical AI Engine
 
 A modular engine for analyzing medical images and studies — built to handle modality-aware preprocessing, run specialized medical AI models, segment anatomy, flag abnormalities, localize findings, and turn all of that into reports a clinician can actually use.
@@ -144,67 +142,55 @@ Built on MONAI and PyTorch.
             Visualization / Verification
 ```
 
+---
 
+## What's actually in the stack
 
+### Core development
 
-
-# Technologies Used
-
-## Core Development
-
-| Technology | Purpose |
+| Technology | What it's doing here |
 |---|---|
-| Python 3.11 | Core development and medical AI pipeline |
-| PyTorch | Deep learning model inference |
-| MONAI | Medical imaging AI framework and 3D medical image processing |
-| MONAI Model Zoo | Pretrained medical imaging models |
-| MONAI Label | Medical imaging annotation and AI-assisted labeling research |
-| NumPy | Numerical and array-based medical image processing |
-| NiBabel | NIfTI medical image loading, spatial metadata, and volume handling |
-| SciPy | Scientific computing and image-processing operations |
-| OpenCV | Image processing and computer vision operations |
-| Pillow (PIL) | Standard image loading and metadata extraction |
-| Tesseract OCR | Text extraction from images |
-| psutil | Runtime memory/resource monitoring |
+| Python 3.11 | The backbone of the whole pipeline |
+| PyTorch | Running the model inference |
+| MONAI | Our medical imaging framework — handles the 3D processing |
+| MONAI Model Zoo | Where we're pulling pretrained medical imaging models from |
+| MONAI Label | Annotation and AI-assisted labeling, still in research mode |
+| NumPy | Array and numerical work across the image pipeline |
+| NiBabel | Loading NIfTI files and handling spatial metadata/volumes |
+| SciPy | General scientific computing, image-processing ops |
+| OpenCV | Computer vision and image processing |
+| Pillow (PIL) | Basic image loading and metadata |
+| Tesseract OCR | Pulling text out of images when needed |
+| psutil | Keeping an eye on memory/resource use at runtime |
 
-## Medical Imaging
+### Medical imaging side
 
-- **DICOM** — Medical imaging data standard and clinical imaging workflow
-- **NIfTI** — 3D medical imaging volume format
-- **Medical Segmentation Decathlon** — Initial benchmark dataset
-- **3D CT Processing** — Volumetric preprocessing and inference
-- **Sliding-Window Inference** — Memory-efficient processing of large 3D volumes
+- **DICOM** — the standard clinical imaging format we're working with
+- **NIfTI** — how we handle 3D imaging volumes
+- **Medical Segmentation Decathlon** — our starting benchmark dataset
+- **3D CT processing** — volumetric preprocessing and inference
+- **Sliding-window inference** — lets us process big 3D volumes without blowing up memory
 
-## AI / Multimodal Analysis
+### AI and multimodal side
 
 | Technology | Role |
 |---|---|
-| PyTorch | Neural network execution |
-| MONAI | Medical imaging models and preprocessing |
-| 3D U-Net | Spleen CT segmentation architecture |
-| Google Gemini | Multimodal image understanding and future explanation/reporting layer |
+| PyTorch | Runs the neural nets |
+| MONAI | Models and preprocessing for medical images |
+| 3D U-Net | The architecture behind our spleen CT segmentation |
+| Google Gemini | Handles multimodal image understanding, and will drive the explanation/reporting layer down the line |
 
-## Image Processing
+### Image processing tools
 
-- OpenCV
-- Pillow
-- Tesseract OCR
-- NumPy
-- NiBabel
+OpenCV, Pillow, Tesseract OCR, NumPy, NiBabel
 
-## Development & Testing
+### How we build and test
 
-- VS Code
-- Python Virtual Environment (`venv`)
-- Terminal / zsh
-- cURL
-- Thunder Client
-- Git
-- GitHub
+VS Code, a Python virtual environment (`venv`), terminal/zsh, cURL, Thunder Client, Git, GitHub
 
+---
 
-
-# Technology Architecture
+## How it all fits together
 
 ```text
                     Medical Imaging Data
@@ -238,48 +224,10 @@ Built on MONAI and PyTorch.
                 │                       │
                 ▼                       ▼
           Visualization            Dice Score
-                                       
+
                             │
                             ▼
                     Gemini Multimodal
                     Reasoning / Reporting
+```
 
-
-That tells the story much better than simply saying:
-
-> Python, PyTorch, MONAI, Gemini, OpenCV...
-
----
-
-### One correction I'd make
-
-Don't list **DICOM** as if you've already completed the entire DICOM pipeline if that part is still under development.
-
-We can separate technologies into:
-
-**Implemented**
-- Python
-- PyTorch
-- MONAI
-- MONAI Model Zoo
-- NiBabel
-- NumPy
-- OpenCV
-- Pillow
-- Tesseract
-- Gemini
-- NIfTI
-- 3D CT inference
-
-**In development**
-- DICOM series processing
-- Modality classification
-- Model registry
-- API layer
-- Additional CT/MRI/X-ray models
-
-That distinction will make the README much more credible to your boss.
-
-And yes, I think the **technology section should be fairly prominent**, because your README is effectively documenting the engineering work you've done, not just advertising the project. GitHub also recommends scannable structure using headings, tables, lists, and visuals, which fits this format well. :contentReference[oaicite:1]{index=1}
-
-If you want, I can also give you a **single polished final `README.md` combining everything we discussed**—overview + objectives + technologies + architecture + exactly what you implemented + results + roadmap—so you can paste it into VS Code as one file.
